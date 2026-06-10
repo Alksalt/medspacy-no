@@ -4,6 +4,7 @@ import sys
 from pathlib import Path
 
 from medspacy_no.validation import (
+    validate_abbreviations,
     validate_context_rules,
     validate_resource_sync,
     validate_rush_rules,
@@ -21,6 +22,7 @@ def main() -> int:
     errors.extend(validate_context_rules(ROOT_RESOURCES / "context_rules.json"))
     errors.extend(validate_section_rules(ROOT_RESOURCES / "section_patterns.json"))
     errors.extend(validate_rush_rules(ROOT_RESOURCES / "rush_rules.tsv"))
+    errors.extend(validate_abbreviations(ROOT_RESOURCES / "abbreviations.txt"))
     errors.extend(validate_resource_sync(ROOT_RESOURCES, PACKAGE_RESOURCES))
 
     if errors:
