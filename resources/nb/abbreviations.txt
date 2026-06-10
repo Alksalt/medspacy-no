@@ -1,0 +1,27 @@
+# Norwegian clinical period-bearing abbreviations kept as single tokens.
+# Seeded from docs/RESEARCH.md and docs/PLAN.md; clinical-language content.
+# owner_reviewed: false
+bl.a.
+bl.tr.
+ca.
+dr.
+dvs.
+evt.
+f.eks.
+i.a.b.
+i.m.
+i.v.
+jf.
+kl.
+mg.
+mtp.
+obs.
+p.o.
+pga.
+s.c.
+susp.
+tbl.
+temp.
+tilst.
+u.a.
+ø.h.

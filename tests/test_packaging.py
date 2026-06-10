@@ -26,6 +26,7 @@ def test_build_artifacts_include_bundled_nb_resources(tmp_path: Path) -> None:
         "medspacy_no/resources/nb/context_rules.json",
         "medspacy_no/resources/nb/section_patterns.json",
         "medspacy_no/resources/nb/rush_rules.tsv",
+        "medspacy_no/resources/nb/abbreviations.txt",
     }
 
     with zipfile.ZipFile(wheel) as archive:
@@ -35,3 +36,14 @@ def test_build_artifacts_include_bundled_nb_resources(tmp_path: Path) -> None:
     with tarfile.open(sdist) as archive:
         names = {"/".join(Path(name).parts[1:]) for name in archive.getnames()}
         assert expected_sdist <= names
+        assert {
+            "resources/nb/context_rules.json",
+            "resources/nb/section_patterns.json",
+            "resources/nb/rush_rules.tsv",
+            "resources/nb/abbreviations.txt",
+            "scripts/validate_resources.py",
+            "scripts/check_owner_review.py",
+            "data/owner_review/context_rule_candidates.tsv",
+            "CONTRIBUTING.md",
+            "docs/P1_OWNER_REVIEW.md",
+        } <= names

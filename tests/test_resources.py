@@ -8,6 +8,9 @@ import pytest
 from medspacy_no.validation import (
     ALLOWED_CONTEXT_CATEGORIES,
     ALLOWED_CONTEXT_DIRECTIONS,
+    RELEASE_MIN_CONTEXT_RULES,
+    load_abbreviations,
+    validate_abbreviations,
     validate_context_rules,
     validate_rush_rules,
     validate_resource_sync,
@@ -65,6 +68,21 @@ def test_rush_rules_have_required_pyrush_header() -> None:
     assert validate_rush_rules(ROOT_RESOURCES / "rush_rules.tsv") == []
 
 
+def test_abbreviations_resource_is_valid_and_non_empty() -> None:
+    assert validate_abbreviations(ROOT_RESOURCES / "abbreviations.txt") == []
+    assert "u.a." in load_abbreviations(ROOT_RESOURCES / "abbreviations.txt")
+
+
+def test_abbreviations_validation_rejects_duplicates_and_whitespace(tmp_path: Path) -> None:
+    path = tmp_path / "abbreviations.txt"
+    path.write_text("# comment\nu.a.\nu.a.\nbl. a.\n")
+
+    errors = validate_abbreviations(path)
+
+    assert any("duplicate" in error for error in errors)
+    assert any("whitespace" in error for error in errors)
+
+
 def test_resource_copies_are_synchronized() -> None:
     assert validate_resource_sync(ROOT_RESOURCES, PACKAGE_RESOURCES) == []
 
@@ -79,8 +97,5 @@ def test_release_blocker_context_rule_counts_are_p1_ready() -> None:
     for rule in data["context_rules"]:
         categories[rule["category"]] = categories.get(rule["category"], 0) + 1
 
-    assert categories["NEGATED_EXISTENCE"] >= 60
-    assert categories["POSSIBLE_EXISTENCE"] >= 30
-    assert categories["HYPOTHETICAL"] >= 20
-    assert categories["HISTORICAL"] >= 15
-    assert categories["FAMILY"] >= 25
+    for category, minimum in RELEASE_MIN_CONTEXT_RULES.items():
+        assert categories.get(category, 0) >= minimum, category

@@ -1,3 +1,16 @@
+"""Schema validation for the bundled Norwegian medspaCy resources.
+
+This validation profile is intentionally stricter than what medspaCy itself
+accepts: medspaCy treats ``pattern`` and ``direction`` as optional (direction
+defaults to BIDIRECTIONAL) and ignores extra top-level JSON keys, while this
+project requires every rule to spell out all four of
+``{category, literal, pattern, direction}`` and each file to carry exactly its
+one wrapper key. The on-disk format stays 100% medspaCy-loadable (zero new
+schema); the extra strictness only forces rule authors to make category,
+scope, and direction decisions explicit so the owner review has nothing
+implicit to miss.
+"""
+
 from __future__ import annotations
 
 import json
@@ -21,7 +34,30 @@ ALLOWED_CONTEXT_DIRECTIONS = frozenset(
 )
 CONTEXT_REQUIRED_KEYS = frozenset({"category", "literal", "pattern", "direction"})
 SECTION_REQUIRED_KEYS = frozenset({"category", "literal"})
-RESOURCE_FILENAMES = ("context_rules.json", "section_patterns.json", "rush_rules.tsv")
+RESOURCE_FILENAMES = (
+    "context_rules.json",
+    "section_patterns.json",
+    "rush_rules.tsv",
+    "abbreviations.txt",
+)
+
+# Release thresholds — single source of truth for the release gate and the
+# release-blocker test. Defaults derived from docs/PLAN.md lexicon targets.
+RELEASE_MIN_CONTEXT_RULES: dict[str, int] = {
+    "NEGATED_EXISTENCE": 60,
+    "POSSIBLE_EXISTENCE": 30,
+    "HYPOTHETICAL": 20,
+    "HISTORICAL": 15,
+    "FAMILY": 25,
+    "TERMINATE": 15,
+}
+RELEASE_MIN_SECTION_RULES = 40
+RELEASE_REQUIRED_SECTION_CATEGORIES = (
+    "chief_complaint",
+    "past_medical_history",
+    "medications",
+    "physical_exam",
+)
 
 
 def validate_context_rules(path: str | Path) -> list[str]:
@@ -128,6 +164,43 @@ def validate_rush_rules(path: str | Path) -> list[str]:
         errors.append(f"{path}: missing stbegin rules")
     if "\tstend" not in text:
         errors.append(f"{path}: missing stend rules")
+    return errors
+
+
+def load_abbreviations(path: str | Path) -> tuple[str, ...]:
+    """Load clinical abbreviations from a resource file.
+
+    One abbreviation per line; blank lines and ``#`` comment lines are
+    ignored. Returns abbreviations in file order.
+    """
+
+    path = Path(path)
+    abbreviations = []
+    for line in path.read_text().splitlines():
+        entry = line.strip()
+        if not entry or entry.startswith("#"):
+            continue
+        abbreviations.append(entry)
+    return tuple(abbreviations)
+
+
+def validate_abbreviations(path: str | Path) -> list[str]:
+    path = Path(path)
+    if not path.exists():
+        return [f"{path}: file does not exist"]
+
+    errors: list[str] = []
+    abbreviations = load_abbreviations(path)
+    if not abbreviations:
+        errors.append(f"{path}: must contain at least one abbreviation")
+
+    seen: set[str] = set()
+    for entry in abbreviations:
+        if any(char.isspace() for char in entry):
+            errors.append(f"{path}: abbreviation {entry!r} must not contain whitespace")
+        if entry in seen:
+            errors.append(f"{path}: duplicate abbreviation {entry!r}")
+        seen.add(entry)
     return errors
 
 
