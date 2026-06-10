@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=68", "wheel"]
+requires = ["setuptools>=77.0.3", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -25,6 +25,7 @@ classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
     "Intended Audience :: Healthcare Industry",
+    "Private :: Do Not Upload",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
     "Programming Language :: Python :: 3.9",
@@ -39,33 +40,28 @@ dependencies = [
     "spacy>=3.7,<4",
 ]
 
-[project.optional-dependencies]
-dev = [
-    "build",
-    "pytest",
-    "wheel",
-]
-
 [dependency-groups]
 dev = [
     "build",
     "pytest",
+    "setuptools>=77.0.3",
     "wheel",
 ]
 
 [project.urls]
 Homepage = "https://github.com/Alksalt/medspacy-no"
 Repository = "https://github.com/Alksalt/medspacy-no"
+Issues = "https://github.com/Alksalt/medspacy-no/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.setuptools.package-data]
-medspacy_no = ["py.typed", "resources/nb/*.json", "resources/nb/*.tsv"]
+medspacy_no = ["py.typed", "resources/nb/*.json", "resources/nb/*.tsv", "resources/nb/*.txt"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-pythonpath = ["src"]
+pythonpath = ["src", "."]
 
 [tool.uv]
 default-groups = ["dev"]
