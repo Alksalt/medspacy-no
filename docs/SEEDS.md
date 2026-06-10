@@ -132,7 +132,7 @@ Flagged for physician review: `osannolikt → usannsynlig` (hedge vs. negation),
 
 - **Lilja Øvrelid** — Professor, leader of the Language Technology Group (LTG), Department of Informatics, University of Oslo; co-director, Integreat. Email: **liljao@ifi.uio.no**. Page: [mn.uio.no/ifi/.../liljao](https://www.mn.uio.no/ifi/english/people/aca/liljao/index.html). This is the right rights-holder contact for **NorSynthClinical** (hosted under [github.com/ltgoslo/NorSynthClinical](https://github.com/ltgoslo/NorSynthClinical)); she is also a co-author on the LTG clinical-NLP work.
 
-- **Synnøve Bråten (Bråthen)** — author of **NorSynthClinical-PHI** ([github.com/synnobra/NorSynthClinical-PHI](https://github.com/synnobra/NorSynthClinical-PHI)). At the time of the source paper she was at the Dept. of Computer and Systems Sciences (DSV), Stockholm University. Only email printed in the paper is personal: **synnovebr@hotmail.com** (NODALIDA 2021, [aclanthology.org/2021.nodalida-main.22](https://aclanthology.org/2021.nodalida-main.22/)). No current institutional address is verifiable on any official page. Recommend CC'ing the stable senior co-author **Hercules Dalianis — hercules@dsv.su.se** (DSV Stockholm), who co-authored both NorSynthClinical-PHI and the Tromsø poster, for the PHI corpus permission.
+- **Synnøve Bråten (Bråthen)** — author of **NorSynthClinical-PHI** ([github.com/synnobra/NorSynthClinical-PHI](https://github.com/synnobra/NorSynthClinical-PHI)). At the time of the source paper she was at the Dept. of Computer and Systems Sciences (DSV), Stockholm University. Only a private email is printed in the NODALIDA 2021 paper; do not republish it in public issue templates or docs beyond this source note. No current institutional address is verifiable on any official page. Recommend CC'ing the stable senior co-author **Hercules Dalianis — hercules@dsv.su.se** (DSV Stockholm), who co-authored both NorSynthClinical-PHI and the Tromsø poster, for the PHI corpus permission.
 
 - **Pål H. Brekke** — MD PhD, cardiologist, OUS Rikshospitalet; now Medical Director at DIPS AS; affiliated with the BigMed project. Profile: [ous-research.no/.../18806](https://www.ous-research.no/home/edvardsen/group%20members/18806) (no email published). LinkedIn: [linkedin.com/in/pal-h-brekke](https://www.linkedin.com/in/pal-h-brekke/). **No email is exposed on any official OUS/UiO/DIPS page.** Do not guess — OUS uses `fornavn.etternavn@ous-hf.no` as a pattern, but that is UNVERIFIED for him; route via OUS Kardiologi or LinkedIn/DIPS. He is a stakeholder/advisor contact, not a rights-holder for the two corpora.
 
@@ -146,18 +146,18 @@ Hei,
 
 Jeg utvikler en åpen kildekode-pakke for norsk klinisk språkteknologi (medspacy-no) og ønsker å lage et lite, annotert evalueringssett for negasjons- og kontekstdeteksjon. Jeg vil gjerne be om tillatelse til å gjenbruke setninger fra NorSynthClinical og NorSynthClinical-PHI som grunnlag for dette settet, med tydelig kreditering til dere som opphavspersoner.
 
-Grunnen til at jeg spør, er at repositoriene ikke har en LICENSE-fil, og jeg vil forsikre meg om at bruken er i orden før jeg publiserer. Datasettet vil forbli åpent tilgjengelig, og bidraget deres vil bli oppgitt i dokumentasjonen.
+Grunnen til at jeg spør, er at repositoriene ikke har en LICENSE-fil, og jeg vil forsikre meg om at bruken er i orden før jeg publiserer. Tillatelsen må omfatte offentlig GitHub-hosting, inkludering i kilde- og PyPI-artefakter hvis aktuelt, arkivering med DOI/JOSS/Zenodo, og videre distribusjon under en åpen lisens for evalueringsdata. Datasettet vil forbli åpent tilgjengelig, og bidraget deres vil bli oppgitt i dokumentasjonen.
 
 Tusen takk for arbeidet dere har delt. Jeg setter stor pris på et svar.
 
 Med vennlig hilsen
 Oleksandr Altukhov
-utdannet lege (cand.med.), Kristiansund
+utdannet lege (master i medisin), Kristiansund
 alksalt.com
 
 ## UPSTREAM-NAMING
 
-- **PR #293** ([github.com/medspacy/medspacy/pull/293](https://github.com/medspacy/medspacy/pull/293)) — adds multilingual support: a `language_code` argument to `medspacy.load()` and components, and per-language resource folders. Ships skeletons for German, Spanish, French, Italian, Dutch, Polish, Portuguese; French and Spanish are most mature (include ConText rules), others mostly RuSH section rules. Author calls for community rule contributions. No explicit discussion of ISO standards or `nb` vs `no`.
+- **PR #293** ([github.com/medspacy/medspacy/pull/293](https://github.com/medspacy/medspacy/pull/293)) — adds multilingual support: a `language_code` argument to `medspacy.load()` and components, and per-language resource folders. Ships skeletons for German, Spanish, French, Italian, Dutch, Polish, Portuguese; current source checks show English, French, and Dutch as the clearest ConText-rule precedents, while several other language folders remain skeletal or focused on section/RuSH resources. Author calls for community rule contributions. No explicit discussion of ISO standards or `nb` vs `no`.
 - **Issue #264** ([github.com/medspacy/medspacy/issues/264](https://github.com/medspacy/medspacy/issues/264)) — the design thread that motivated #293. Proposes moving English resources to `resources/en/` and adding e.g. `resources/pl/`. Debates fork vs. upstream contribution; raises concerns about multi-language test suites and package bloat. No maintainer ruling on a code-naming standard.
 - **Actual convention in the repo** ([resources/](https://github.com/medspacy/medspacy/tree/master/resources)): two-letter **ISO 639-1** folders — `de, en, es, fr, it, nl, pl, pt`. No contributor doc beyond "match this layout + add a `language_code`."
 

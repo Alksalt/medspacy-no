@@ -4,7 +4,7 @@ Ideas for after v0.1 ships to PyPI and JOSS is submitted. Not a commitment list 
 
 ## NorMedTerm-seeded target matcher
 
-NorMedTerm (LTG/UiO, 77k+ Norwegian medical entities, 12 semantic categories, ICD codes) as the medspacy `TargetMatcher` / QuickUMLS-equivalent layer. v0.1 leaves target matching to the user; v0.2 could bundle a `load_nb(targets=True)` path that initializes the TargetMatcher from NorMedTerm. Blocked on: written permission from LTG/UiO (no LICENSE file in that repo) — send the permission email now so it doesn't block later.
+NorMedTerm (LTG/UiO, 77k+ Norwegian medical entities, 12 semantic categories, ICD codes) as the medspacy `TargetMatcher` / QuickUMLS-equivalent layer. v0.1 leaves target matching to the user; v0.2 could bundle a `load_nb(targets=True)` path that initializes the TargetMatcher from NorMedTerm. Current repo terms state CC BY 4.0, so attribution is required; bundling still needs a deliberate data-size/provenance decision.
 
 ## QuickUMLS Norwegian concept database
 

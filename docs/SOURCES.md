@@ -21,6 +21,10 @@ https://ehealthresearch.no/en/posters/negation-detection-in-norwegian-medical-te
 https://github.com/centre-for-humanities-computing/DaCy
 https://arxiv.org/abs/2107.05295
 https://arxiv.org/pdf/2209.00470
+https://arxiv.org/abs/2606.01904
+https://www.sciencedirect.com/science/article/pii/S1532046409000744
+https://github.com/chapmanbe/pyConTextNLP
+https://pypi.org/project/PyRuSH/
 
 ## eval data — Norwegian open corpora
 
@@ -52,3 +56,6 @@ https://aclanthology.org/venues/louhi/
 https://2026.emnlp.org/
 https://joss.readthedocs.io/en/latest/submitting.html
 https://joss.readthedocs.io/en/latest/review_criteria.html
+https://joss.readthedocs.io/en/latest/review_checklist.html
+https://packaging.python.org/en/latest/guides/writing-pyproject-toml/
+https://docs.pypi.org/trusted-publishers/using-a-publisher/

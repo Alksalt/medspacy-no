@@ -36,4 +36,4 @@ NorSynthClinical and NorSynthClinical-PHI have no LICENSE files. Building the ev
 
 ## JOSS timeline vs software quality bar
 
-JOSS reviewers look for: working code, passing tests, documentation, an OSI license, and a statement of need. They do not require publication-quality eval results — the peer-reviewed evaluation paper is separate. This means JOSS can be submitted before the gold set kappa is finalized, as long as basic tests (section detection, known-trigger unit tests) pass. Consider a two-stage release: PyPI + JOSS paper first, eval paper second.
+Current JOSS screening is stricter than the original plan: public history over more than six months, active iteration, open-source workflow signals, feature completeness, research impact evidence, and an AI usage disclosure. Do not submit the fixture scaffold. Consider a two-stage release only after production resources and basic eval evidence exist: PyPI first, JOSS after public incubation, eval paper second.

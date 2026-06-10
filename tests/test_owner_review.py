@@ -1,21 +1,22 @@
 from __future__ import annotations
 
-import csv
 from pathlib import Path
 
-from scripts.check_owner_review import REVIEW_FILE, validate_owner_review
+from scripts.check_owner_review import ALLOWED_STATUSES, REVIEW_FILE, validate_owner_review
 
 
 def test_owner_review_worksheet_is_valid() -> None:
     assert validate_owner_review(REVIEW_FILE) == []
 
 
-def test_all_initial_context_rule_candidates_are_pending() -> None:
+def test_context_rule_candidates_use_allowed_review_statuses() -> None:
     with REVIEW_FILE.open(newline="") as file:
+        import csv
+
         rows = list(csv.DictReader(file, delimiter="\t"))
 
     assert rows
-    assert {row["review_status"] for row in rows} == {"pending"}
+    assert {row["review_status"] for row in rows} <= ALLOWED_STATUSES
 
 
 def test_approved_rows_require_clinical_review_metadata(tmp_path: Path) -> None:

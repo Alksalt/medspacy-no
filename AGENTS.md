@@ -71,7 +71,7 @@ pyproject.toml           # uv/setuptools; OSI license field
 
 ### P3 — physician-authored synthetic gold set
 
-300–500 sentences authored by the owner (utdannet lege, cand.med., daily clinical Norwegian). Annotation design:
+300–500 sentences authored by the owner (utdannet lege, master i medisin, daily clinical Norwegian). Annotation design:
 - Cover all five ConText categories + affirmed controls.
 - Include an "affirmed-only" subset (~100 sentences containing no modifier triggers) to measure false-negation rate, mirroring Skeppstedt 2011's NPV design.
 - Substrate: extend NorSynthClinical + NorSynthClinical-PHI sentences (with permission) or write independently.
@@ -81,11 +81,12 @@ pyproject.toml           # uv/setuptools; OSI license field
 
 ### P4 — JOSS submission
 
-Rolling submission; no deadline. Required: public clonable repo, OSI license, passing tests, documentation, `paper.md` (~250–1000 words). Rule-based clinical NLP package is squarely in scope (pre-trained ML models are out of scope — this is not). Do not wait for a conference acceptance to submit. JOSS reference: joss.readthedocs.io.
+Rolling submission; no deadline. Required: public clonable repo, OSI license, passing tests, documentation, `paper.md` (~250–1000 words), production resources, release-readiness checks, public development history, research-use evidence, open-source workflow signals, and AI usage disclosure. Rule-based clinical NLP package is in scope once feature-complete; fixture scaffolds are not. Do not wait for a conference acceptance to prepare, but do not submit before the JOSS public-history and feature-completeness gates are met. JOSS reference: joss.readthedocs.io.
 
 JOSS checklist:
 - OSI license (MIT or Apache-2.0) in repo root
 - `uv run pytest` passes
+- `uv run python scripts/check_release_ready.py` passes
 - `paper.md` with statement of need, citations, author affiliations
 - API docs (docstrings + README usage sketch)
 - Contribution guidelines

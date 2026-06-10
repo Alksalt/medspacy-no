@@ -8,16 +8,27 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v5
-      - name: Install Python
-        run: uv python install 3.12
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Check lockfile
+        run: uv lock --check
+      - name: Sync dependencies
+        run: uv sync --locked --dev
       - name: Validate bundled resources
-        run: uv run python scripts/validate_resources.py
+        run: uv run --locked python scripts/validate_resources.py
       - name: Validate owner review worksheet
-        run: uv run python scripts/check_owner_review.py
+        run: uv run --locked python scripts/check_owner_review.py
       - name: Compile
-        run: uv run python -m compileall src/medspacy_no scripts tests
+        run: uv run --locked python -m compileall src/medspacy_no scripts tests
       - name: Test
-        run: uv run python -m pytest
+        run: uv run --locked python -m pytest
+      - name: Build artifacts
+        run: uv run --locked python -m build --no-isolation
