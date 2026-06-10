@@ -49,3 +49,67 @@ def test_load_nb_missing_default_model_message(monkeypatch: pytest.MonkeyPatch) 
 
     with pytest.raises(OSError, match="uv run python -m spacy download nb_core_news_lg"):
         load_nb()
+
+
+def test_load_nb_rejects_non_nb_model_loaded_from_name(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr(spacy, "load", lambda *args, **kwargs: spacy.blank("en"))
+
+    with pytest.raises(ValueError, match="Norwegian Bokmal"):
+        load_nb("en_core_web_sm")
+
+
+def test_load_nb_places_pyrush_before_parser_when_parser_exists() -> None:
+    base = spacy.blank("nb")
+    base.add_pipe("parser")
+
+    nlp = load_nb(base, resource_dir=ROOT_RESOURCES, enable_pyrush=True, enable_sections=False)
+
+    assert nlp.pipe_names.index("medspacy_pyrush") < nlp.pipe_names.index("parser")
+
+
+def test_load_nb_rejects_existing_managed_medspacy_component() -> None:
+    base = spacy.blank("nb")
+    base.add_pipe("sentencizer", name="medspacy_context")
+
+    with pytest.raises(ValueError, match="medspacy_context"):
+        load_nb(base, resource_dir=ROOT_RESOURCES, enable_pyrush=False, enable_sections=False)
+
+
+def test_load_nb_rejects_existing_managed_component_even_when_disabled() -> None:
+    base = spacy.blank("nb")
+    base.add_pipe("sentencizer", name="medspacy_pyrush")
+
+    with pytest.raises(ValueError, match="medspacy_pyrush"):
+        load_nb(base, resource_dir=ROOT_RESOURCES, enable_pyrush=False, enable_sections=False)
+
+
+def test_load_nb_replace_managed_components_rebuilds_pipeline() -> None:
+    base = spacy.blank("nb")
+    base.add_pipe("sentencizer", name="medspacy_context")
+    base.add_pipe("sentencizer", name="medspacy_pyrush")
+
+    nlp = load_nb(
+        base,
+        resource_dir=ROOT_RESOURCES,
+        enable_pyrush=False,
+        enable_sections=False,
+        replace_managed_components=True,
+    )
+
+    assert nlp.pipe_names.count("medspacy_context") == 1
+    assert "medspacy_pyrush" not in nlp.pipe_names
+
+
+def test_load_nb_keeps_custom_tokenizer_when_replace_tokenizer_is_false() -> None:
+    base = spacy.blank("nb")
+    original_tokenizer = base.tokenizer
+
+    nlp = load_nb(
+        base,
+        resource_dir=ROOT_RESOURCES,
+        enable_pyrush=False,
+        enable_sections=False,
+        replace_tokenizer=False,
+    )
+
+    assert nlp.tokenizer is original_tokenizer
