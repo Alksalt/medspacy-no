@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: ["main"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - name: Install Python
+        run: uv python install 3.12
+      - name: Validate bundled resources
+        run: uv run python scripts/validate_resources.py
+      - name: Validate owner review worksheet
+        run: uv run python scripts/check_owner_review.py
+      - name: Compile
+        run: uv run python -m compileall src/medspacy_no scripts tests
+      - name: Test
+        run: uv run python -m pytest

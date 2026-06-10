@@ -1,0 +1,58 @@
+source	swedish_phrase	source_tag	norwegian_candidate	proposed_category	proposed_direction	review_status	clinical_reviewer	reviewed_date	review_notes
+Skeppstedt 2011	saknas	post	mangler	NEGATED_EXISTENCE	BACKWARD	pending			
+Skeppstedt 2011	saknas	post	savnes	NEGATED_EXISTENCE	BACKWARD	pending			Drifts toward "is missed"; review before use.
+Skeppstedt 2011	negativt	post	negativt	NEGATED_EXISTENCE	BACKWARD	pending			
+Skeppstedt 2011	osannolikt	post	usannsynlig	POSSIBLE_EXISTENCE	BIDIRECTIONAL	pending			Uncertain: may be hedge rather than hard negation.
+Skeppstedt 2011	inget avvikande	post	intet avvikende	NEGATED_EXISTENCE	BACKWARD	pending			
+Skeppstedt 2011	inget avvikande	post	ingen avvikende funn	NEGATED_EXISTENCE	BACKWARD	pending			
+Skeppstedt 2011	inget avvikande	post	i.a.b.	NEGATED_EXISTENCE	BACKWARD	pending			Abbreviation for "intet å bemerke"; scope needs review.
+Skeppstedt 2011	förnekas	post	benektes	NEGATED_EXISTENCE	BACKWARD	pending			False-friend check: prefer benekte over fornekte.
+Skeppstedt 2011	inte	pren	ikke	NEGATED_EXISTENCE	FORWARD	pending			
+Skeppstedt 2011	ej	pren	ej	NEGATED_EXISTENCE	FORWARD	pending			Used in some charting; review actual local usage.
+Skeppstedt 2011	ej	pren	ikke	NEGATED_EXISTENCE	FORWARD	pending			
+Skeppstedt 2011	ingen	pren	ingen	NEGATED_EXISTENCE	FORWARD	pending			
+Skeppstedt 2011	utan	pren	uten	NEGATED_EXISTENCE	FORWARD	pending			False friend: do not keep Swedish/Nynorsk "utan".
+Skeppstedt 2011	inga	pren	ingen	NEGATED_EXISTENCE	FORWARD	pending			Bokmal plural candidate.
+Skeppstedt 2011	inget	pren	intet	NEGATED_EXISTENCE	FORWARD	pending			
+Skeppstedt 2011	inget	pren	ingenting	NEGATED_EXISTENCE	FORWARD	pending			
+Skeppstedt 2011	har inte	pren	har ikke	NEGATED_EXISTENCE	FORWARD	pending			
+Skeppstedt 2011	inga tecken	pren	ingen tegn	NEGATED_EXISTENCE	FORWARD	pending			
+Skeppstedt 2011	inga tecken	pren	ingen tegn til	NEGATED_EXISTENCE	FORWARD	pending			
+Skeppstedt 2011	kan inte	pren	kan ikke	NEGATED_EXISTENCE	FORWARD	pending			
+Skeppstedt 2011	inte har	pren	ikke har	NEGATED_EXISTENCE	FORWARD	pending			
+Skeppstedt 2011	utesluta	pren	utelukke	NEGATED_EXISTENCE	FORWARD	pending			False-friend spelling check.
+Skeppstedt 2011	förnekar	pren	benekter	NEGATED_EXISTENCE	FORWARD	pending			False-friend check: prefer benekte over fornekte.
+Skeppstedt 2011	inte kan	pren	ikke kan	NEGATED_EXISTENCE	FORWARD	pending			
+Skeppstedt 2011	icke	pren	ikke	NEGATED_EXISTENCE	FORWARD	pending			
+Skeppstedt 2011	icke	pren	ikke-	NEGATED_EXISTENCE	FORWARD	pending			Prefix/tokenization hazard.
+Skeppstedt 2011	aldrig	pren	aldri	NEGATED_EXISTENCE	FORWARD	pending			
+Skeppstedt 2011	saknar	pren	mangler	NEGATED_EXISTENCE	FORWARD	pending			
+Skeppstedt 2011	uteslutas	pren	utelukkes	NEGATED_EXISTENCE	FORWARD	pending			
+Skeppstedt 2011	patienten inte	pren	pasienten ikke	NEGATED_EXISTENCE	FORWARD	pending			
+Skeppstedt 2011	känner sig inte	pren	føler seg ikke	NEGATED_EXISTENCE	FORWARD	pending			
+Skeppstedt 2011	utan några	pren	uten noen	NEGATED_EXISTENCE	FORWARD	pending			
+Skeppstedt 2011	kunde inte	pren	kunne ikke	NEGATED_EXISTENCE	FORWARD	pending			
+Skeppstedt 2011	inte kunnat	pren	ikke kunnet	NEGATED_EXISTENCE	FORWARD	pending			
+Skeppstedt 2011	utan tecken	pren	uten tegn	NEGATED_EXISTENCE	FORWARD	pending			
+Skeppstedt 2011	utan tecken	pren	uten tegn til	NEGATED_EXISTENCE	FORWARD	pending			
+Skeppstedt 2011	inte visar	pren	viser ikke	NEGATED_EXISTENCE	BACKWARD	pending			Word-order/scope review needed.
+Skeppstedt 2011	inte visar	pren	ikke viser	NEGATED_EXISTENCE	FORWARD	pending			Word-order/scope review needed.
+Skeppstedt 2011	inte kunna	pren	ikke kunne	NEGATED_EXISTENCE	FORWARD	pending			
+Skeppstedt 2011	inget som	pren	intet som	NEGATED_EXISTENCE	FORWARD	pending			
+Skeppstedt 2011	inget som	pren	ingenting som	NEGATED_EXISTENCE	FORWARD	pending			
+Skeppstedt 2011	fri från	pren	fri for	NEGATED_EXISTENCE	FORWARD	pending			Clinical idiom; false-friend check against "fri fra".
+Skeppstedt 2011	avsaknad av	pren	fravær av	NEGATED_EXISTENCE	FORWARD	pending			
+Skeppstedt 2011	avsaknad av	pren	mangel på	NEGATED_EXISTENCE	FORWARD	pending			
+Skeppstedt 2011	vet inte	pseu	vet ikke	PSEUDO	PSEUDO	pending			
+Skeppstedt 2011	inte vet	pseu	ikke vet	PSEUDO	PSEUDO	pending			
+Skeppstedt 2011	kan inte uteslutas	pseu	kan ikke utelukkes	POSSIBLE_EXISTENCE	FORWARD	pending			Critical: not negation; cannot be ruled out.
+Skeppstedt 2011	inte bara	pseu	ikke bare	PSEUDO	PSEUDO	pending			
+Skeppstedt 2011	inte utesluta	pseu	ikke utelukke	PSEUDO	PSEUDO	pending			
+Skeppstedt 2011	inte orsaka	pseu	ikke forårsake	PSEUDO	PSEUDO	pending			
+Skeppstedt 2011	inte nödvändigtvis	pseu	ikke nødvendigvis	PSEUDO	PSEUDO	pending			
+Skeppstedt 2011	ingen ändring	pseu	ingen endring	PSEUDO	PSEUDO	pending			False friend: Swedish ändring -> Bokmal endring.
+Skeppstedt 2011	ingen förändring	pseu	ingen forandring	PSEUDO	PSEUDO	pending			False friend: Swedish förändring -> Bokmal forandring.
+Tromso poster 2018	ikke tegn til	pren	ikke tegn til	NEGATED_EXISTENCE	FORWARD	pending			Visible poster example.
+Tromso poster 2018	ikke- prefix	pren	ikke-	NEGATED_EXISTENCE	FORWARD	pending			Visible poster tokenization hazard.
+Norwegian charting candidate	u.a.	post	u.a.	NEGATED_EXISTENCE	BACKWARD	pending			Abbreviation: uten anmerkning; scope needs review.
+Norwegian charting candidate	i.a.b.	post	i.a.b.	NEGATED_EXISTENCE	BACKWARD	pending			Abbreviation: intet å bemerke; scope needs review.

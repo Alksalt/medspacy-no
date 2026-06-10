@@ -1,0 +1,12 @@
+{
+  "section_rules": [
+    {
+      "literal": "__MEDSPACY_NO_FIXTURE_SECTION__:",
+      "category": "fixture_section",
+      "metadata": {
+        "fixture": true,
+        "owner_reviewed": false
+      }
+    }
+  ]
+}

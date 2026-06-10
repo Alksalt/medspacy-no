@@ -1,0 +1,54 @@
+{
+  "context_rules": [
+    {
+      "category": "NEGATED_EXISTENCE",
+      "literal": "__medspacy_no_fixture_negated__",
+      "pattern": null,
+      "direction": "FORWARD",
+      "metadata": {
+        "fixture": true,
+        "owner_reviewed": false
+      }
+    },
+    {
+      "category": "POSSIBLE_EXISTENCE",
+      "literal": "__medspacy_no_fixture_possible__",
+      "pattern": null,
+      "direction": "FORWARD",
+      "metadata": {
+        "fixture": true,
+        "owner_reviewed": false
+      }
+    },
+    {
+      "category": "HYPOTHETICAL",
+      "literal": "__medspacy_no_fixture_hypothetical__",
+      "pattern": null,
+      "direction": "FORWARD",
+      "metadata": {
+        "fixture": true,
+        "owner_reviewed": false
+      }
+    },
+    {
+      "category": "HISTORICAL",
+      "literal": "__medspacy_no_fixture_historical__",
+      "pattern": null,
+      "direction": "FORWARD",
+      "metadata": {
+        "fixture": true,
+        "owner_reviewed": false
+      }
+    },
+    {
+      "category": "FAMILY",
+      "literal": "__medspacy_no_fixture_family__",
+      "pattern": null,
+      "direction": "FORWARD",
+      "metadata": {
+        "fixture": true,
+        "owner_reviewed": false
+      }
+    }
+  ]
+}

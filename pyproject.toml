@@ -1,0 +1,71 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "medspacy-no"
+version = "0.1.0"
+description = "Norwegian Bokmal resources and loader for medspaCy clinical NLP."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Oleksandr Altukhov" }
+]
+keywords = [
+    "clinical-nlp",
+    "medspacy",
+    "norwegian",
+    "bokmal",
+    "context",
+    "negation",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Healthcare Industry",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+    "Topic :: Text Processing :: Linguistic",
+]
+dependencies = [
+    "medspacy>=1.3.1,<2",
+    "spacy>=3.7,<4",
+]
+
+[project.optional-dependencies]
+dev = [
+    "build",
+    "pytest",
+    "wheel",
+]
+
+[dependency-groups]
+dev = [
+    "build",
+    "pytest",
+    "wheel",
+]
+
+[project.urls]
+Homepage = "https://github.com/Alksalt/medspacy-no"
+Repository = "https://github.com/Alksalt/medspacy-no"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+medspacy_no = ["py.typed", "resources/nb/*.json", "resources/nb/*.tsv"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.uv]
+default-groups = ["dev"]

@@ -1,0 +1,11 @@
+# Placeholder Norwegian PyRuSH rules for infrastructure smoke tests.
+# Production clinical sentence rules are owner-reviewed P1 resources.
+@MaxRepeatLength	100
+@Version	1.0.3.4
+
+\b(\C	0	stbegin
+\b(\d	0	stbegin
+\b\s+(\C	0	stbegin
+*)	1	stbegin
+\a(.)\s+	2	stend
+\a)\e	2	stend
