@@ -48,7 +48,8 @@ Implemented infrastructure (2026-06-10):
 
 - **2026-06-10** — infrastructure-first scaffold implemented and tests added
 - **2026-06-10** — git/CI/review packet prepared; all context-rule candidates remain `pending`
-- **2026-06-10** — full-repo review (`findings.md`) and all fixes landed: `uv run pytest` gate repaired, tokenizer no longer splits clinical numerics (letter-bounded hyphen infix only), abbreviations moved to `resources/nb/abbreviations.txt` (owner-review gated), stale managed components always rejected, release thresholds single-sourced in `medspacy_no.validation`, release gate hardened (no crashes; checks Private classifier + paper.md). GitHub remote creation still pending owner go-ahead.
+- **2026-06-10** — full-repo review (`findings.md`) and all fixes landed: `uv run pytest` gate repaired, tokenizer no longer splits clinical numerics (letter-bounded hyphen infix only), abbreviations moved to `resources/nb/abbreviations.txt` (owner-review gated), stale managed components always rejected, release thresholds single-sourced in `medspacy_no.validation`, release gate hardened (no crashes; checks Private classifier + paper.md).
+- **2026-06-10** — public repo created and pushed: https://github.com/Alksalt/medspacy-no — JOSS public-history clock started.
 - **next** — owner reviews `data/owner_review/context_rule_candidates.tsv`, then begins authoring `context_rules.json`
 - **next** — send permission email while lexicon authoring is in progress (parallel)
 - **next** — keep release gate failing until owner-reviewed P1 resources replace smoke fixtures

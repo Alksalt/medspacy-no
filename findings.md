@@ -1,6 +1,6 @@
 # findings.md — full-repo review of medspacy-no (2026-06-10)
 
-**Resolution status (2026-06-10, same day):** all findings fixed and verified — `uv run pytest` now passes (28 passed, 1 xfailed), clinical numerics tokenize correctly, release gate covers abbreviations/classifier/paper.md. One exception: the L6 sub-item "create/push the public GitHub remote" is intentionally left for the owner (outward-facing action); local history is committed in bisectable chunks.
+**Resolution status (2026-06-10, same day):** all findings fixed and verified — `uv run pytest` now passes (28 passed, 1 xfailed), clinical numerics tokenize correctly, release gate covers abbreviations/classifier/paper.md. L6 closed in full: history committed in bisectable chunks and pushed to the public repo https://github.com/Alksalt/medspacy-no (created 2026-06-10 on owner go-ahead).
 
 Scope: every tracked file (src, tests, scripts, resources, CI, pyproject, docs). All behavioral claims verified by running code against the project venv (medspacy 1.3.1, spacy 3.8.14). Review only — nothing fixed.
 
