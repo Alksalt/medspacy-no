@@ -19,6 +19,7 @@ Implemented infrastructure (2026-06-10):
 - Root `resources/nb/` synchronized with packaged resources.
 - `tests/` covering loader smoke behavior, tokenizer abbreviations, medspaCy wrapper schemas, resource sync, and package artifact inclusion.
 - `scripts/validate_resources.py` and `scripts/check_owner_review.py` for explicit resource/review validation.
+- `scripts/check_release_ready.py` for the intentionally failing release gate while fixtures remain.
 - GitHub Actions CI scaffold in `.github/workflows/ci.yml`.
 - Owner review packet: `docs/P1_OWNER_REVIEW.md` and `data/owner_review/context_rule_candidates.tsv`.
 - Current resources are non-production smoke fixtures. The production rule-count test is marked xfail until owner-reviewed P1 resources replace them.
@@ -39,7 +40,7 @@ Implemented infrastructure (2026-06-10):
 | double-annotate ≥100 sentences (kappa) | gold set + colleague | not started |
 | compute per-category P/R/F on gold set | tests + gold set | not started |
 | publish to PyPI | package + tests | not started |
-| submit to JOSS | PyPI + paper.md | not started |
+| submit to JOSS | PyPI + paper.md + production resources + public-history/eval evidence | not started |
 | open nb-vs-no naming issue on medspacy | PyPI live | not started |
 | upstream PR to medspacy resources/nb/ | naming issue resolved | not started |
 
@@ -47,5 +48,7 @@ Implemented infrastructure (2026-06-10):
 
 - **2026-06-10** — infrastructure-first scaffold implemented and tests added
 - **2026-06-10** — git/CI/review packet prepared; all context-rule candidates remain `pending`
+- **2026-06-10** — full-repo review (`findings.md`) and all fixes landed: `uv run pytest` gate repaired, tokenizer no longer splits clinical numerics (letter-bounded hyphen infix only), abbreviations moved to `resources/nb/abbreviations.txt` (owner-review gated), stale managed components always rejected, release thresholds single-sourced in `medspacy_no.validation`, release gate hardened (no crashes; checks Private classifier + paper.md). GitHub remote creation still pending owner go-ahead.
 - **next** — owner reviews `data/owner_review/context_rule_candidates.tsv`, then begins authoring `context_rules.json`
 - **next** — send permission email while lexicon authoring is in progress (parallel)
+- **next** — keep release gate failing until owner-reviewed P1 resources replace smoke fixtures

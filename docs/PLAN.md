@@ -23,7 +23,7 @@ Fields:
 - `category` — one of `NEGATED_EXISTENCE`, `POSSIBLE_EXISTENCE`, `HYPOTHETICAL`, `HISTORICAL`, `FAMILY`
 - `literal` — plain string; used for display and as fallback match if `pattern` is null
 - `pattern` — null or a spaCy Matcher token-pattern array (use for morphology, optional tokens, inline alternation)
-- `direction` — `FORWARD`, `BACKWARD`, or `TERMINATE`
+- `direction` — `FORWARD`, `BACKWARD`, `BIDIRECTIONAL`, `TERMINATE`, or `PSEUDO`
 
 Lexicon size targets:
 
@@ -86,7 +86,7 @@ Unit-test by running the tokenizer and senter on short telegraphic note fragment
 `pyproject.toml` with:
 - `name = "medspacy-no"`
 - `license = {text = "MIT"}`
-- `dependencies = ["medspacy>=1.3", "spacy[nb]>=3.7"]`
+- `dependencies = ["medspacy>=1.3.1,<2", "spacy>=3.7,<4"]`
 
 `load_nb(model="nb_core_news_lg")` — single public function. Accepts a model name or an existing spaCy `Language`. Load the spaCy model, install the Norwegian clinical tokenizer, then add medspaCy components with explicit bundled rule paths. Do not rely on `medspacy.load(language_code="nb")` finding resources inside the `medspacy` package.
 
@@ -94,7 +94,7 @@ Package data: include `resources/nb/*.json` and `resources/nb/*.tsv` in `MANIFES
 
 ## phase 3 — eval design
 
-Gold set: 300–500 sentences authored by the owner (utdannet lege, cand.med.). Distribution:
+Gold set: 300–500 sentences authored by the owner (utdannet lege, master i medisin). Distribution:
 - ~100 NEGATED_EXISTENCE
 - ~60 POSSIBLE_EXISTENCE
 - ~40 HYPOTHETICAL
@@ -113,9 +113,13 @@ Metrics: per-category precision, recall, F1. Report separately for affirmed-only
 Paper checklist:
 - OSI license (MIT or Apache-2.0) in repo root — required
 - `uv run pytest` passes — required
-- `paper.md`: statement of need (no Norwegian ConText module exists), description, installation instructions, references to Skeppstedt 2011 + medspacy AMIA 2021 + the 2018 Norwegian poster
+- production resources and release-readiness checks pass — required
+- public development history, tagged release/changelog, issue/support workflow, and AI usage disclosure — required by current JOSS screening
+- `paper.md`: statement of need (no open Norwegian Bokmal medspaCy/ConText resource package), description, installation instructions, references to Skeppstedt 2011 + medspacy AMIA 2021 + the 2018 Norwegian poster + KliniskVestBERT landscape note
 - Author affiliations: Oleksandr Altukhov, independent (Kristiansund, Norway)
 - JOSS submission at joss.theoj.org; select "Natural Language Processing" subject area
+
+Do not submit the current fixture scaffold to JOSS. Prepare the paper and references early, but submit only after production resources, evaluation evidence, and public iteration exist.
 
 ## phase 5 — upstream PR
 

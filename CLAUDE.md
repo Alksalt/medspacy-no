@@ -1,6 +1,6 @@
 # CLAUDE.md — medspacy-no
 
-Norwegian language module for medspacy: ConText trigger rules (negation/uncertainty/hypothetical/historical/family) + Norwegian clinical section detection + clinical sentence segmentation. Distributed as PyPI package `medspacy-no` first, upstream PR to medspacy second. Cheapest citable artifact in the ehelse portfolio — supports the Helse Midt-Norge PhD application due 1 Sept 2026.
+Norwegian Bokmal language module for medspacy: ConText trigger rules (negation/uncertainty/hypothetical/historical/family) + Norwegian clinical section detection + clinical sentence segmentation. Planned as PyPI package `medspacy-no` first, upstream PR to medspacy second. Cheapest citable artifact in the ehelse portfolio — supports the Helse Midt-Norge PhD application due 1 Sept 2026.
 
 ## current status (2026-06-10)
 
@@ -11,10 +11,10 @@ Infrastructure-first scaffold implemented. Recommended first ship of the portfol
 - Reuse medspacy's exact rule formats (JSON schema is fixed — zero new schema).
 - PyPI standalone package first; upstream PR only after PyPI ships.
 - Open the `nb` vs `no` naming issue upstream before the PR.
-- Never redistribute NorSynthClinical / NorSynthClinical-PHI / NorMedTerm derivatives without written permission from LTG/UiO (Øvrelid, Brekke) and Bråten — those repos carry no LICENSE file.
+- Never redistribute NorSynthClinical / NorSynthClinical-PHI derivatives without written permission from LTG/UiO (Øvrelid, Brekke) and Bråten — those repos carry no LICENSE file. NorMedTerm currently states CC BY 4.0; attribution is required and bundling remains a separate decision.
 - State the synthetic-eval limitation plainly in any publication. No hedging.
 - OSI license only (MIT or Apache-2.0).
-- Do not gate the software release on a conference. JOSS runs rolling; Clinical NLP Workshop 2027 / NoDaLiDa 2027 are the eval-paper targets.
+- Do not gate the software release on a conference. JOSS runs rolling but now requires public history, feature completeness, open-source workflow signals, and AI usage disclosure; Clinical NLP Workshop 2027 / NoDaLiDa 2027 are the eval-paper targets.
 - Trigger-lexicon authoring, gold-set authoring, and false-friend validation are owner-only clinical-language steps — do not delegate to an automated agent.
 - Never Haiku. Opus for rule-design review and planning; Sonnet for implementation.
 
@@ -34,7 +34,7 @@ README.md              public repo skeleton
 resources/nb/          owner-facing resource files; currently synchronized smoke fixtures
 src/medspacy_no/       Python package source + bundled resources/nb/ copy
 tests/                 pytest suite, including release-blocker xfail for P1 rule counts
-paper.md               JOSS paper
+paper.md               JOSS paper (P4 — not yet written; release gate fails until it exists)
 ```
 
 ## ship profile

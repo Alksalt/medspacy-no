@@ -24,6 +24,10 @@ Author `resources/nb/section_patterns.json` from real Norwegian innkomstjournal 
 
 Replace the current placeholder `rush_rules.tsv` with Norwegian clinical-note rules after checking note-style fragments with abbreviations, lists, and missing terminal punctuation.
 
+## Tokenizer Abbreviations
+
+Review `resources/nb/abbreviations.txt` (period-bearing charting abbreviations kept as single tokens; seeded from docs/RESEARCH.md and docs/PLAN.md, including candidates like `ift.`, `ivf.`, `prof.`, `st.`, `avd.`, `ml.`, `dl.` not yet added). After review, change the `# owner_reviewed: false` header line to `# owner_reviewed: true` and sync the copy under `src/medspacy_no/resources/nb/`. The release gate fails while the file is marked unreviewed.
+
 ## Release Gate
 
 The expected xfail in `tests/test_resources.py::test_release_blocker_context_rule_counts_are_p1_ready` should only be removed when P1 resources are production-ready.
