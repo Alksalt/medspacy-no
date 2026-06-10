@@ -65,3 +65,10 @@ pythonpath = ["src", "."]
 
 [tool.uv]
 default-groups = ["dev"]
+# On Python <3.12 the resolver pairs thinc 8.2.4 / blis 0.7.11 (wheels built
+# against numpy 1.x, no declared numpy<2 cap) with numpy 2.x, which fails at
+# import with a dtype ABI error. Lock-level constraint only; package metadata
+# is unaffected.
+constraint-dependencies = [
+    "numpy<2; python_full_version < '3.12'",
+]
