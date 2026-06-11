@@ -58,6 +58,8 @@ uv run python scripts/check_release_ready.py  # expected to fail until owner-rev
 
 The test suite includes an expected release-blocker xfail for production rule counts. That xfail should only be removed after the owner-authored `resources/nb/` triple is clinically reviewed.
 
+**Note on history:** this repository was extracted from prior private work and published in June 2026; the public commit history therefore starts at publication. Pre-release status and evaluation limitations are described in this README.
+
 ## evaluation
 
 _Evaluation results pending. Gold set: physician-authored synthetic corpus, 300–500 sentences, per-category P/R/F, Cohen's κ on ≥100 double-annotated sentences. Note: evaluation is conducted on synthetic clinical text; no openly redistributable Norwegian EHR ConText/assertion gold set is currently available._
